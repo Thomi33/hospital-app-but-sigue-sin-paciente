@@ -1,5 +1,8 @@
 package utu.conexion;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexion {
 
@@ -7,14 +10,17 @@ public class Conexion {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
+    private static Connection conexion;
+
+    /** Devuelve la conexión a la base de datos (una única para toda la aplicación). */
     public static Connection conectar() {
-       try {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-       } catch (SQLException e) {
-        System.out.println("Error al conectar a la base de datos: " );
-        System.out.println(e.getMessage());
-           
-        return null;
-       }
+        try {
+            if (conexion == null || conexion.isClosed()) {
+                conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+            }
+            return conexion;
+        } catch (SQLException e) {
+            throw new RuntimeException("No se pudo conectar a la base de datos (" + URL + "): " + e.getMessage(), e);
+        }
     }
 }
