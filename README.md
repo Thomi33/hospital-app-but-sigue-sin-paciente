@@ -1,13 +1,15 @@
 # Sistema de Gestión Hospitalaria
 
+`Codigo Asistido por IA generativa (con un tumor cerebral)`
+
 Programa de escritorio en Java para llevar el inventario de equipos médicos de
 un hospital: equipos, marcas, modelos, proveedores, instituciones,
 ubicaciones, intervenciones, usuarios y perfiles. Cada usuario inicia sesión
-y el sistema guarda un registro de sus acciones.
+y el sistema guarda un registro de sus acciones
 
 ## Cómo iniciarlo
 
-Necesitás Java 21, Maven y MySQL o MariaDB instalados.
+Necesitás Java 21, Maven y MySQL o MariaDB instalados
 
 1. Crear la base de datos (borra la base `hospital` si ya existe):
 
@@ -21,10 +23,10 @@ Necesitás Java 21, Maven y MySQL o MariaDB instalados.
    mvn exec:java
    ```
 
-3. Entrar con el usuario `admin` y la contraseña `admin123`.
+3. Entrar con el usuario `admin` y la contraseña `admin123`
 
 El usuario admin tiene acceso a todo. El perfil Operador solo puede ver
-equipos e intervenciones.
+equipos e intervenciones
 
 ## Cómo contribuir
 
