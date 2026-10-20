@@ -1,21 +1,15 @@
-# 🏥 Sistema de Gestión Hospitalaria
+# Sistema de Gestión Hospitalaria
 
-Programa de escritorio hecho en Java para llevar el inventario de los equipos
-médicos de un hospital: equipos, marcas, modelos, proveedores, instituciones,
-ubicaciones, intervenciones, usuarios y perfiles. Además guarda un registro de
-todo lo que hace cada usuario (auditoría).
+Programa de escritorio en Java para llevar el inventario de equipos médicos de
+un hospital: equipos, marcas, modelos, proveedores, instituciones,
+ubicaciones, intervenciones, usuarios y perfiles. Cada usuario inicia sesión
+y el sistema guarda un registro de sus acciones.
 
-> Este sistema **no** maneja pacientes; ese módulo no forma parte del proyecto.
+## Cómo iniciarlo
 
-## Qué necesitas
+Necesitás Java 21, Maven y MySQL o MariaDB instalados.
 
-- Java 21 instalado
-- Maven instalado
-- MySQL o MariaDB corriendo en tu máquina
-
-## Cómo ponerlo en marcha
-
-1. Crear la base de datos (⚠️ el script borra la base `hospital` si ya existe):
+1. Crear la base de datos (borra la base `hospital` si ya existe):
 
    ```bash
    mysql -u root -p < script.sql
@@ -27,15 +21,13 @@ todo lo que hace cada usuario (auditoría).
    mvn exec:java
    ```
 
-3. Entrar con el usuario **admin** y la contraseña **admin123**.
+3. Entrar con el usuario `admin` y la contraseña `admin123`.
 
-## ¿Quién puede hacer qué?
+El usuario admin tiene acceso a todo. El perfil Operador solo puede ver
+equipos e intervenciones.
 
-- **Administrador**: puede usar todo el sistema.
-- **Operador**: solo puede ver equipos e intervenciones.
+## Cómo contribuir
 
-## Probar que todo funciona
-
-```bash
-mvn test
-```
+1. Creá una rama con tu cambio: `git checkout -b mi-cambio`
+2. Hacé los cambios y probá que todo funcione con `mvn test`
+3. Hacé commit y abrí un pull request
