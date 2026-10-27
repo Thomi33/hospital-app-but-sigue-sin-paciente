@@ -55,7 +55,7 @@ public class UsuarioDAO {
         }
         String hash = PasswordUtil.hash(u.getContrasena());
         String sql = "INSERT INTO usuario (nombre, apellido, cedula, telefono, correo, usuario, contrasena, fecha_alta, activo, id_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, u.getNombre());
             ps.setString(2, u.getApellido());
             ps.setString(3, u.getCedula());
@@ -68,6 +68,12 @@ public class UsuarioDAO {
             ps.setInt(10, u.getPerfil().getIdPerfil());
 
             if (ps.executeUpdate() > 0) {
+                // Recupera el id generado para que el objeto quede sincronizado con la base
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        u.setIdUsuario(rs.getInt(1));
+                    }
+                }
                 new AuditoriaDAO().registrar("usuario", "INSERT", "Alta de usuario '" + u.getUsuario() + "'");
                 return true;
             }
