@@ -22,7 +22,7 @@ public class Principal extends JFrame {
     }
 
     private void iniciarComponentes() {
-        setTitle("Sistema de Gestión Hospitalaria");
+        setTitle("Hospital de Tel Aviv - Gestión de Equipamiento");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(escritorio, BorderLayout.CENTER);
         crearMenu();
@@ -78,7 +78,7 @@ public class Principal extends JFrame {
         JMenuItem acercaDe = new JMenuItem("Acerca de");
         acercaDe.addActionListener(e -> JOptionPane.showMessageDialog(
                 this,
-                "Sistema de Gestión Hospitalaria\nGestión de equipamiento biomédico\n\nJava 21 + Swing + MySQL",
+                "Hospital de Tel Aviv\nGestión de equipamiento biomédico\n\nJava 21 + Swing + MySQL",
                 "Acerca de",
                 JOptionPane.INFORMATION_MESSAGE));
         ayuda.add(acercaDe);

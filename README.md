@@ -1,4 +1,4 @@
-# Sistema de Gestión Hospitalaria
+# Hospital de Tel Aviv - Gestión de Equipamiento
 
 `Codigo Asistido por IA generativa (con un tumor cerebral)`
 

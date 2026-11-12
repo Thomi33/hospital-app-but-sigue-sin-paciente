@@ -30,14 +30,14 @@ public class Login extends JFrame {
     }
 
     private void iniciarComponentes() {
-        setTitle("Sistema de Gestión Hospitalario");
+        setTitle("Hospital de Tel Aviv");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
         JPanel principal = new JPanel(new BorderLayout(0, 10));
         principal.setBorder(BorderFactory.createEmptyBorder(20, 30, 15, 30));
 
-        JLabel titulo = new JLabel("Bienvenido al Sistema de Gestión Hospitalario");
+        JLabel titulo = new JLabel("Bienvenido al Hospital de Tel Aviv");
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD, 18f));
         principal.add(titulo, BorderLayout.NORTH);
